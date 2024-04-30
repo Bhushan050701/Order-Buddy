@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "323392757163",
+    "project_id": "order-buddy-2b064",
+    "storage_bucket": "order-buddy-2b064.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323392757163:android:ae66f4cc8aedb1ab6046ee",
+        "android_client_info": {
+          "package_name": "com.example.orderbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_eh0tlE6bU04q-EZJ3BaSxookccf2B-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
