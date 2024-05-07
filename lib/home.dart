@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -18,7 +19,8 @@ class _HomeState extends State<Home> {
           child: const Text("Logout"),
           onPressed: () {
             FirebaseAuth.instance.signOut().then((value) {
-              print("Signed Out");
+              Fluttertoast.showToast(msg: "LogOut Successful",
+                  backgroundColor: Colors.black.withOpacity(0.5));
               Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
             });
           }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orderbuddy/reusable.dart';
 import 'package:orderbuddy/signUp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'home.dart';
 
@@ -37,7 +38,8 @@ class _LoginState extends State<Login> {
               FirebaseAuth.instance.signInWithEmailAndPassword(
                 email: _emailTextController.text,
                 password: _passwordTextController.text).then((value) {
-                  print("Sign In Successful");
+                  Fluttertoast.showToast(msg: "LogIn Successful",
+                  backgroundColor: Colors.black.withOpacity(0.5));
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");

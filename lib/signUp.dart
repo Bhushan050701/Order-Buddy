@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:orderbuddy/reusable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'home.dart';
 
@@ -53,7 +54,8 @@ class _SignUpState extends State<SignUp> {
                   email: _emailTextController.text,
                   password: _passwordTextController.text
                 ).then((value) {
-                  print("Created New Account");
+                  Fluttertoast.showToast(msg: "Account Created Successfully",
+                      backgroundColor: Colors.black.withOpacity(0.5));
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");
