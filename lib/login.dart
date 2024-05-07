@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:orderbuddy/reusable.dart';
 import 'package:orderbuddy/signUp.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home.dart';
 
@@ -33,7 +34,14 @@ class _LoginState extends State<Login> {
             reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
             const SizedBox(height: 20),
             signInSignUpButton(context, true, () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+              FirebaseAuth.instance.signInWithEmailAndPassword(
+                email: _emailTextController.text,
+                password: _passwordTextController.text).then((value) {
+                  print("Sign In Successful");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                });
             }),
             signUpOption(context),
           ],

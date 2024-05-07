@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:orderbuddy/reusable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home.dart';
 
@@ -47,8 +48,16 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(
                 height: 20,
               ),
-              signInSignUpButton(context, true, () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+              signInSignUpButton(context, false, () {
+                FirebaseAuth.instance.createUserWithEmailAndPassword(
+                  email: _emailTextController.text,
+                  password: _passwordTextController.text
+                ).then((value) {
+                  print("Created New Account");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                });
               })
             ]
           )
