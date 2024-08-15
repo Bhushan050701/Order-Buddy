@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
             child: Image.asset('assets/app_logo.png', width: 260, height: 260),
             ),
             const SizedBox(height: 60),
-            reusableTextField("Enter Email", Icons.person_outline, false, _emailTextController),
+            reusableTextField("Enter Email ID", Icons.person_outline, false, _emailTextController),
             const SizedBox(height: 20),
             reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
             const SizedBox(height: 20),
@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
                   backgroundColor: Colors.black.withOpacity(0.5));
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
                 }).onError((error, stackTrace) {
-                  print("Error ${error.toString()}");
+                  Fluttertoast.showToast(msg: "Invalid ID or Password", backgroundColor: Colors.black.withOpacity(0.5));
                 });
             }),
             signUpOption(context),

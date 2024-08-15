@@ -41,7 +41,7 @@ class _SignUpState extends State<SignUp> {
               const SizedBox(
                 height: 20,
               ),
-              reusableTextField("Enter Email", Icons.person_outline, false, _emailTextController),
+              reusableTextField("Enter Email ID", Icons.person_outline, false, _emailTextController),
               const SizedBox(
                 height: 20,
               ),
@@ -58,7 +58,7 @@ class _SignUpState extends State<SignUp> {
                       backgroundColor: Colors.black.withOpacity(0.5));
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
                 }).onError((error, stackTrace) {
-                  print("Error ${error.toString()}");
+                  Fluttertoast.showToast(msg: "Incomplete Details", backgroundColor: Colors.black.withOpacity(0.5));
                 });
               })
             ]
